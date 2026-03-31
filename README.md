@@ -1,45 +1,42 @@
-# BIS 438 Feature Engineering Lab - Setup Guide
+# BIS 438 Machine Learning Lab Series - Setup Guide
 
-**Course:** BIS 438
-**Lab:** Part 1 - Customer Churn Feature Engineering  
-**Duration:** 60 minutes  
+**Course:** BIS 438  
+**Labs:** Two-part series on Customer Churn Prediction  
+**Total Duration:** 2 class periods (~60 minutes each)  
 **Difficulty:** Beginner-friendly (no coding experience required!)
 
 ---
 
-## What You'll Do
+## 📋 Lab Overview
 
-In this lab, you'll learn how to prepare raw customer data for machine learning by:
+This is a **two-part lab series** where you'll build a complete machine learning solution for TeleConnect, a telecommunications company trying to predict and prevent customer churn.
+
+### Part 1: Feature Engineering (Week 1)
+**Notebook:** `feature_engineering_lab.ipynb`  
+**Duration:** ~60 minutes
+
+Learn how to prepare raw customer data for machine learning:
 - Cleaning messy data
 - Handling missing values
 - Creating new features
 - Encoding categories for ML models
+- Splitting data for training and testing
 
-**All instructions are in the notebook** - this guide just helps you get set up!
+### Part 2: Model Training (Week 2)
+**Notebook:** `model_training_lab.ipynb`  
+**Duration:** ~60 minutes
 
----
+Use your prepared data to build prediction models:
+- Training multiple ML models
+- Evaluating model performance
+- Understanding overfitting
+- Identifying churn drivers
+- Making predictions on new customers
+- Deploying a model for production
 
-## ⚠️ IMPORTANT: First-Time Setup Tips
+**Important:** You must complete Part 1 before starting Part 2, as Part 2 uses the processed data files created in Part 1.
 
-**Before you start:**
-
-1. **Be Patient:** First-time setup takes 2-3 minutes. Wait for "Codespace ready" before doing anything!
-
-2. **Free Tier Limits:** GitHub gives you 120 FREE hours/month of Codespaces (plenty for this 60-minute lab)
-   - Your Codespace auto-stops after 30 minutes of inactivity
-   - You can manually stop/delete it when done to save hours
-   - See "Troubleshooting" section below for instructions
-
-3. **Your Work is Saved:** Codespaces auto-saves everything in the cloud
-   - Close the browser anytime - your progress is preserved
-   - Come back later by reopening your Codespace from GitHub
-
-4. **Each Student Gets Their Own:** You have your own isolated environment
-   - Your instructor cannot see or access your Codespace
-   - You cannot share a Codespace with classmates
-   - Each person must create their own
-
-**Ready?** Follow the steps below to get started!
+**All instructions are in the notebooks** - this guide just helps you get set up!
 
 ---
 
@@ -54,10 +51,12 @@ In this lab, you'll learn how to prepare raw customer data for machine learning 
 
 Your instructor has provided a GitHub repository link. It should look like:
 ```
-https://github.com/[instructor-username]/bis438-feature-engineering-lab
+https://github.com/[instructor-username]/bis438-churn-prediction-lab
 ```
 
 Click the link to open the repository.
+
+**Note:** This repository contains both Part 1 and Part 2 notebooks. You'll use the same Codespace for both weeks!
 
 ---
 
@@ -75,29 +74,17 @@ GitHub Codespaces creates a cloud-based coding environment that runs in your bro
    - If you see an existing Codespace listed, click on it to reopen
    - First-time setup takes 2-3 minutes (be patient!)
 
-4. **⚠️ WAIT for the environment to fully load** (this is important!)
+4. **Wait for the environment to load**
    - You'll see a VS Code interface in your browser
-   - Look at the **bottom-right corner** for status messages:
-     - "Setting up Codespace..." 
-     - "Installing Python packages..."
-     - "Codespace ready" ✅
-   - **Do NOT open the notebook or run any cells until you see "Codespace ready"**
-   - This usually takes 2-3 minutes on first launch
+   - Bottom right will show "Setting up Codespace..."
+   - When ready, you'll see "Codespace ready"
 
 ### What's Happening?
 Codespaces is:
-- Creating a virtual computer in the cloud (15 seconds)
-- Installing Python 3.13 (30 seconds)
-- Installing all required libraries: pandas, numpy, matplotlib, etc. (90 seconds)
-- Loading your lab files (10 seconds)
-- Setting up Jupyter notebook support (15 seconds)
-
-**Total:** ~2-3 minutes. Grab a coffee! ☕
-
-### How do I know it's ready?
-- ✅ Bottom-right says "Codespace ready" or shows no installation messages
-- ✅ You can see files in the left sidebar
-- ✅ No loading spinners in the status bar
+- Creating a virtual computer in the cloud
+- Installing Python and all required libraries
+- Loading your lab files
+- Setting up Jupyter notebook support
 
 ---
 
@@ -107,24 +94,21 @@ Once Codespaces is ready:
 
 1. **Look at the file explorer** on the left sidebar
 
-2. **Find and click on:** `feature_engineering_lab.ipynb`
-   - This is your interactive lab notebook
+2. **Week 1 - Find and click on:** `feature_engineering_lab.ipynb`
+   - This is Part 1 of the lab
    - It contains all instructions and code
+   
+   **Week 2 - Find and click on:** `model_training_lab.ipynb`
+   - This is Part 2 of the lab
+   - Make sure you've completed Part 1 first!
 
 3. **Wait for the notebook to open**
    - You'll see cells with text and code
    - May take 10-15 seconds on first open
 
-4. **Select a Python kernel** (you'll be prompted automatically):
-   - Click "Select Kernel" in the top right (or it may pop up automatically)
-   - Choose **"Python 3.13.x"** from the list
-   - Look for the option that shows **/usr/local/bin/python**
-   - This connects your notebook to Python so it can run code
-
-**✅ Kernel Selected?** You should see "Python 3.13.x" in the top-right corner of the notebook.
-
-### What is a "Kernel"?
-Think of it as the "engine" that runs your Python code. You're selecting which version of Python to use. We're using Python 3.13 for this lab.
+4. **Select a Python kernel** (if prompted):
+   - Click "Select Kernel" in the top right
+   - Choose "Python 3.x" (any version listed)
 
 ---
 
@@ -137,14 +121,21 @@ You're ready to begin!
 - **Read the markdown cells** (text explanations) carefully
 - **Run code cells** by clicking on them and pressing **Shift + Enter**
 - **Run cells in order** from top to bottom (later cells depend on earlier ones)
-- **Complete the "YOUR TURN" exercises** as you go
+- **Follow along with visualizations and interpretations**
 
-### First Action:
-1. Click on the **first code cell** (imports libraries)
-2. Press **Shift + Enter** to run it
-3. You should see: "Libraries loaded successfully!"
+### First Action - Week 1:
+1. Open `feature_engineering_lab.ipynb`
+2. Click on the **first code cell** (imports libraries)
+3. Press **Shift + Enter** to run it
+4. You should see: "✅ Libraries loaded successfully!"
 
-If you see that message, you're all set!
+### First Action - Week 2:
+1. Open `model_training_lab.ipynb`
+2. Make sure you completed Part 1 first (you should see `.pkl` files in your directory)
+3. Run the first code cell
+4. You should see: "✅ Libraries loaded successfully!"
+
+If you see success messages, you're all set!
 
 ---
 
@@ -153,13 +144,19 @@ If you see that message, you're all set!
 ```
 Repository Contents
 ├── README.md ← You are here (setup guide)
-├── feature_engineering_lab.ipynb ← START HERE (your lab)
+├── feature_engineering_lab.ipynb ← PART 1 - Start here!
+├── model_training_lab.ipynb ← PART 2 - Do this second!
 ├── customer_data.csv (customer data - don't open directly)
 ├── requirements.txt (Python packages - auto-installed)
+├── X_train.pkl (created by Part 1, used by Part 2)
+├── X_test.pkl (created by Part 1, used by Part 2)
+├── y_train.pkl (created by Part 1, used by Part 2)
+├── y_test.pkl (created by Part 1, used by Part 2)
 └── .devcontainer/ (Codespaces config - ignore this)
 ```
 
-**You only need to work with:** `feature_engineering_lab.ipynb`
+**Week 1:** Work with `feature_engineering_lab.ipynb` - it creates the `.pkl` files  
+**Week 2:** Work with `model_training_lab.ipynb` - it uses the `.pkl` files
 
 Everything else happens automatically!
 
@@ -168,107 +165,35 @@ Everything else happens automatically!
 
 ## Troubleshooting
 
-### ⚠️ IMPORTANT: Wait for Setup to Complete!
-
-When you first create a Codespace, **wait 2-3 minutes** for the setup to complete:
-- Look at the **bottom-right corner** for status messages
-- You'll see "Setting up Codespace..." then "Installing Python packages..."
-- **Do not run any notebook cells** until you see "Codespace ready"
-- If you try to run cells too early, you may get "ipykernel not found" errors
-
 ### Issue: "Codespace failed to create"
 **Solution:** 
 - Refresh the page and try again
 - Make sure you're logged into GitHub
 - Check if you have available Codespace hours (free tier: 120 hours/month)
-- Try clearing your browser cache and restarting
 
-### Issue: "Kernel not found" or "ipykernel not available"
-**Solution - Method 1 (Preferred):**
-1. **Wait!** Codespaces may still be installing packages (check bottom status bar)
-2. Once setup is complete, click "Select Kernel" in the top right of the notebook
-3. Choose **"Python 3.13.x"** (should match your environment)
-4. Look for the option with **/usr/local/bin/python** in the path
-5. Click it and wait for the kernel to connect
-
-**Solution - Method 2 (If Method 1 doesn't work):**
-1. Close the notebook file
-2. Open a new terminal: `Terminal` → `New Terminal` from the top menu
-3. Run: `pip install ipykernel jupyter`
-4. Wait for installation to complete (30-60 seconds)
-5. Reopen the notebook: click `feature_engineering_lab.ipynb` in the file explorer
-6. Select the Python 3.13 kernel when prompted
-
-### Issue: "Module not found" error when running code (e.g., pandas, numpy)
-**Cause:** Python packages didn't install automatically, or you selected the wrong kernel.
-
+### Issue: "Kernel not found" or notebook won't run
 **Solution:**
-1. Check which kernel is selected (look at top-right of notebook)
-   - Should say "Python 3.13.x" or similar
-   - If it says something else, click it and select the Python 3.13 option
-2. Open a new terminal: `Terminal` → `New Terminal` from the top menu
-3. Verify Python version: `python --version` (should be 3.13.x)
-4. Reinstall packages: `pip install --no-cache-dir -r requirements.txt`
-5. Wait for installation to complete (1-2 minutes)
-6. Restart the kernel: Click the ↻ icon at the top of the notebook
-7. Try running the first cell again
+1. Wait for Codespaces to fully initialize (check bottom status bar)
+2. Click "Select Kernel" in the top right of the notebook
+3. Choose any "Python 3.x" option
+4. If still not working, close and reopen the notebook file
 
-### Issue: Code cells won't run / nothing happens when I press Shift+Enter
+### Issue: "Module not found" error when running code
 **Solution:**
-1. Check if kernel is connected (top-right should show "Python 3.13.x")
-2. If disconnected, click "Select Kernel" and choose Python 3.13
-3. If kernel is busy (spinning icon), wait for current cell to finish
-4. Try restarting the kernel: Click ↻ icon at top of notebook
+1. Open a new terminal: `Terminal` → `New Terminal` from the top menu
+2. Run: `pip install -r requirements.txt`
+3. Wait for installation to complete
+4. Restart the kernel: Click the ↻ icon at the top of the notebook
 
 ### Issue: Lost your work?
 **Don't worry!** Codespaces automatically saves your changes. Your work is stored in the cloud.
-- Every time you edit and run cells, changes are saved automatically
-- Your `.pkl` files are saved in your Codespace storage
-- Close the browser anytime - your work persists
 
 ### Issue: Need to pause and come back later?
 **No problem!** 
-- Codespaces auto-saves your work continuously
-- Just close the browser tab - your Codespace will auto-stop after 30 minutes of inactivity
-- To resume: Go back to the GitHub repository → Code → Codespaces → Click your existing Codespace
-- Your progress will be exactly where you left off (notebook outputs, variables, `.pkl` files all preserved)
-
-### Issue: How do I stop/delete my Codespace to save hours?
-
-**To Stop (Pause) Your Codespace:**
-1. Go to https://github.com/codespaces
-2. Find your `bis438-feature-engineering-lab` Codespace
-3. Click the **three dots (...)** on the right
-4. Select **"Stop codespace"**
-5. Your work is saved - you can restart it later
-
-**To Delete Your Codespace (after lab is complete):**
-1. Go to https://github.com/codespaces
-2. Find your `bis438-feature-engineering-lab` Codespace
-3. Click the **three dots (...)** on the right
-4. Select **"Delete"**
-5. ⚠️ **Warning:** This permanently deletes all your work! Only do this if you've submitted your lab.
-
-**Managing Your Free Hours:**
-- Free tier: 120 hours/month (plenty for this lab!)
-- This lab takes ~60 minutes to complete
-- Codespaces auto-stop after 30 minutes of inactivity (doesn't waste your hours)
-- Check remaining hours: https://github.com/settings/billing
-
-### Issue: Notebook outputs disappeared when I reopened
-**Cause:** This is normal! Notebook outputs are not saved in your Codespace by default.
-
-**Solution:**
-- Run the cells again to regenerate outputs
-- Your saved `.pkl` files are still there (run the loading cells to restore your work)
-- To preserve outputs: Use "Export" → "Export as PDF/HTML" from the `...` menu in notebook toolbar
-
-### Issue: Can I work on this from multiple computers?
-**Yes!** Your Codespace lives in the cloud:
-1. Open the GitHub repository from any computer
-2. Go to Code → Codespaces → Click your existing Codespace
-3. Continue where you left off
-4. All your work, packages, and files are preserved
+- Codespaces auto-saves your work
+- Just close the browser tab
+- Return to the GitHub repository and reopen your Codespace
+- Your progress will be exactly where you left off
 
 ---
 
@@ -290,25 +215,36 @@ When you first create a Codespace, **wait 2-3 minutes** for the setup to complet
 
 ## Time Expectations
 
-- **Environment setup:** 2-3 minutes (one time)
-- **Lab completion:** 60 minutes
-- **Total:** ~65 minutes
+- **Environment setup:** 2-3 minutes (one time only)
+- **Part 1 (Feature Engineering):** ~60 minutes
+- **Part 2 (Model Training):** ~60 minutes
+- **Total:** ~2 hours across two class periods
 
-The lab is designed to be completed in one class period.
+Each lab is designed to be completed in one class period.
+
+**Between weeks:** Your work is automatically saved in Codespaces. When you return for Part 2, just reopen your Codespace and continue where you left off!
 
 ---
 
 ## What Happens Next?
 
-### During the Lab:
-1. Complete all code cells in the notebook
-2. Answer embedded questions as you go
+### Week 1 (Part 1):
+1. Complete all code cells in `feature_engineering_lab.ipynb`
+2. Answer embedded "YOUR TURN" exercises as you go
 3. Take note of interesting findings
+4. At the end, you'll save four `.pkl` files for Part 2
 
-### After the Lab:
-- Your instructor will provide reflection questions
-- You may be asked to submit your completed notebook
-- Part 2 (Model Training) will build on this work
+### Week 2 (Part 2):
+1. Reopen your Codespace (or create a new one)
+2. Open `model_training_lab.ipynb`
+3. The notebook will load your `.pkl` files from Part 1
+4. Complete all code cells and review model results
+5. Answer reflection questions
+
+### After Both Labs:
+- Your instructor may ask you to submit your completed notebooks
+- You'll have built a complete end-to-end ML solution!
+- Consider exploring the "Next Steps" section in Part 2 for additional challenges
 
 ---
 
@@ -327,14 +263,16 @@ The lab is designed to be completed in one class period.
 
 ## Ready to Begin?
 
-1. GitHub account created
-2. Codespace launched successfully  
-3. Notebook opened: `feature_engineering_lab.ipynb`
-4. First cell runs without errors
+✅ GitHub account created  
+✅ Codespace launched successfully  
+✅ Notebook opened: `feature_engineering_lab.ipynb` (Week 1) or `model_training_lab.ipynb` (Week 2)  
+✅ First cell runs without errors
 
 **If all checked, you're ready!**
 
-Open the notebook and follow the instructions inside. Good luck!
+**Week 1:** Open `feature_engineering_lab.ipynb` and follow the instructions inside. Good luck!
+
+**Week 2:** Open `model_training_lab.ipynb` and continue your ML journey!
 
 ---
 
@@ -343,41 +281,11 @@ Open the notebook and follow the instructions inside. Good luck!
 - **GitHub Codespaces Help:** https://docs.github.com/codespaces
 - **Jupyter Notebook Basics:** Press `Shift + Enter` to run cells
 - **Keyboard Shortcuts:** Click the keyboard icon in the notebook toolbar
-- **Manage Your Codespaces:** https://github.com/codespaces
-
----
-
-## Quick Reference: Common Tasks
-
-### Running Code in the Notebook
-- **Run current cell:** `Shift + Enter`
-- **Run all cells:** Click ▶▶ icon at top of notebook
-- **Stop running code:** Click ⏹ (square) icon at top
-
-### Kernel Management
-- **Select kernel:** Top-right corner → "Select Kernel" → Choose Python 3.13.x
-- **Restart kernel:** Click ↻ icon at top of notebook
-- **Clear outputs:** Edit menu → Clear All Outputs
-
-### Codespace Management
-- **Stop Codespace:** https://github.com/codespaces → ... menu → Stop
-- **Delete Codespace:** https://github.com/codespaces → ... menu → Delete (⚠️ permanent!)
-- **Check usage:** https://github.com/settings/billing
-
-### Saving Your Work
-- **Auto-save:** Happens automatically (every few seconds)
-- **Manual save:** `Ctrl+S` (Windows/Linux) or `Cmd+S` (Mac)
-- **Export notebook:** ... menu in notebook toolbar → Export as PDF/HTML
-
-### Getting Unstuck
-1. Read error messages carefully (they often tell you what's wrong!)
-2. Check if kernel is connected (top-right should show Python 3.13.x)
-3. Try restarting the kernel (↻ icon)
-4. Check the Troubleshooting section above
-5. Ask your instructor for help
 
 ---
 
 **Questions before starting?** Ask your instructor!
 
-**Ready to start?** Open `feature_engineering_lab.ipynb` now!
+**Ready to start Week 1?** Open `feature_engineering_lab.ipynb` now!
+
+**Ready to start Week 2?** Open `model_training_lab.ipynb` now!
