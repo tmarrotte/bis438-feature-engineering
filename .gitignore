@@ -27,12 +27,6 @@ wheels/
 .ipynb_checkpoints
 */.ipynb_checkpoints/*
 
-# Data files (keep the original CSV)
-*.pkl
-X_train.pkl
-X_test.pkl
-y_train.pkl
-y_test.pkl
 
 # VS Code
 .vscode/
